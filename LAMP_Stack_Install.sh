@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # ------------[20/7/2015]---------------#
-#										#
-#	Alex McPhee							#
-#   CentOS-6-Quick-Install-Scripts		#
-#	LAMP Stack							#
-#	HTTPD, PHP, MYSQL, MYSQL-SERVER.	#
-#										#
+#									                    	#
+#	  Alex McPhee						             	#
+#   CentOS-6-Scripts  		              #
+# 	LAMP Stack						            	#
+#	  HTTPD, PHP, MYSQL, MYSQL-SERVER.   	#
+#								                    		#
 #---------------------------------------#
 
 clear
@@ -46,3 +46,14 @@ done
 
 clear
 echo 'Okay.... apache, php and mysql is installed, running and set to your desired password'
+
+while true; do
+read -e -p "Restart your server now to complete the install (y/n)? " rsn
+	case $rsn in
+		[Yy]* ) break;;
+		[Nn]* ) exit;
+	esac
+done
+shutdown -r now
+
+exit
