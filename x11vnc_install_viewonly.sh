@@ -102,8 +102,6 @@ fi
     echo '#      CIFS Credentials Saved        #' 2>&1 1>~/x11vnc_install.log
     echo '#------------------------------------#'
 	/bin/sleep 2
-	
-fi
 
 # Changing '.smbcred' files permissions to 600. Read-Only
 /usr/bin/clear
