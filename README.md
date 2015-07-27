@@ -1,6 +1,6 @@
 # scripts
 
-example use:
+
 Install LAMP on CentOS 6.x
 -----
 
