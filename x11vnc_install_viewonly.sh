@@ -12,7 +12,7 @@
 
 # start message
 /usr/bin/clear
-echo 'Going to install x11vnc in view only mode, on your machine, here we go...' 2>&1 1>~/x11vnc_install.log
+echo 'Going to install x11vnc in view only mode, on your machine, here we go...' 2>>&1 1>~/x11vnc_install.log
 echo '------------------------'
 
 /bin/sleep 2
@@ -24,13 +24,13 @@ tabs 4
 # Run Updates
 echo ''
 echo '#------------------------------------#'
-echo '#    Running Ubuntu System Update    #' 2>&1 1>~/x11vnc_install.log
+echo '#    Running Ubuntu System Update    #' 2>>&1 1>>~/x11vnc_install.log
 echo '#------------------------------------#'
 
 /bin/sleep 1
-/usr/bin/apt-get -qqy update 2>&1 1>~/x11vnc_install.log
-/usr/bin/apt-get -qqy upgrade 2>&1 1>~/x11vnc_install.log
-/usr/bin/apt-get -qqy autoclean 2>&1 1>~/x11vnc_install.log
+/usr/bin/apt-get -qqy update 2>>&1 1>>~/x11vnc_install.log
+/usr/bin/apt-get -qqy upgrade 2>>&1 1>>~/x11vnc_install.log
+/usr/bin/apt-get -qqy autoclean 2>>&1 1>>~/x11vnc_install.log
 
 # tab width
 tabs 4
@@ -39,17 +39,17 @@ tabs 4
 # Install X11VNC
 echo ''
 echo '#------------------------------------#'
-echo '#    Installing X11VNC Application   #' 2>&1 1>~/x11vnc_install.log
+echo '#    Installing X11VNC Application   #' 2>>&1 1>>~/x11vnc_install.log
 echo '#------------------------------------#'
 
 /bin/sleep 1
-/usr/bin/apt-get -qqy install x11vnc 2>&1 1>~/x11vnc_install.log
+/usr/bin/apt-get -qqy install x11vnc 2>>&1 1>>~/x11vnc_install.log
 /usr/bin/clear
 
 # Prepare Files And Folders
 echo ''
 echo '#------------------------------------#'
-echo '#    Preparing Files & Folders	   #' 2>&1 1>~/x11vnc_install.log
+echo '#    Preparing Files & Folders	   #' 2>>&1 1>>~/x11vnc_install.log
 echo '#------------------------------------#'
 
 /bin/sleep 1
@@ -64,7 +64,7 @@ FILE=.smbcred
 if [ ! -d $PATH1 ]
 	then
 		echo $PATH1 'Could Not Find File'
-		/bin/mkdir $PATH1 2>&1 1>~/x11vnc_install.log
+		/bin/mkdir $PATH1 2>>&1 1>>~/x11vnc_install.log
 		echo $PATH1 'Has Been Created'
 fi
 
@@ -72,7 +72,7 @@ fi
 if [ ! -d $PATH2 ]
 	then
 		echo $PATH2 'Could Not Find File'
-		/bin/mkdir $PATH2 2>&1 1>~/x11vnc_install.log
+		/bin/mkdir $PATH2 2>>&1 1>>~/x11vnc_install.log
 		echo $PATH2 'Has Been Created'
 		/usr/bin/touch $PATH2$FILE
 fi
@@ -81,52 +81,52 @@ fi
 if [ ! -d $PATH3 ]
 	then
 		echo $PATH3 'Could Not Find File'
-		/bin/mkdir $PATH3 2>&1 1>~/x11vnc_install.log
+		/bin/mkdir $PATH3 2>>&1 1>>~/x11vnc_install.log
 		echo $PATH3 'Has Been Created'
 fi   
 
 /usr/bin/clear
     echo ''
     echo '#------------------------------------#'
-    echo '#    Prepare Folders: Complete       #' 2>&1 1>~/x11vnc_install.log
+    echo '#    Prepare Folders: Complete       #' 2>>&1 1>>~/x11vnc_install.log
     echo '#------------------------------------#'
     /bin/sleep 2
 
 # Network Share Credentials
-    echo "username=administrator" >> $PATH2$FILE 2>&1 1>~/x11vnc_install.log
-    echo "password=l1brary" >> $PATH2$FILE 2>&1 1>~/x11vnc_install.log   
+    echo "username=administrator" >> $PATH2$FILE 2>>&1 1>>~/x11vnc_install.log
+    echo "password=l1brary" >> $PATH2$FILE 2>>&1 1>>~/x11vnc_install.log   
 
     /usr/bin/clear
     echo ''
     echo '#------------------------------------#'
-    echo '#      CIFS Credentials Saved        #' 2>&1 1>~/x11vnc_install.log
+    echo '#      CIFS Credentials Saved        #' 2>>&1 1>>~/x11vnc_install.log
     echo '#------------------------------------#'
 	/bin/sleep 2
 
 # Changing '.smbcred' files permissions to 600. Read-Only
 /usr/bin/clear
-/bin/chmod 600 $PATH2$FILE 2>&1 1>~/x11vnc_install.log
+/bin/chmod 600 $PATH2$FILE 2>>&1 1>>~/x11vnc_install.log
 
     echo ''
     echo '#------------------------------------#'
-    echo '#   .smbcred now 600 readonly        #' 2>&1 1>~/x11vnc_install.log
+    echo '#   .smbcred now 600 readonly        #' 2>>&1 1>>~/x11vnc_install.log
     echo '#------------------------------------#'
 /bin/sleep 2
 	
 /usr/bin/clear
     echo ''
     echo '#------------------------------------#'
-    echo '#       Installing Cifs-utils        #' 2>&1 1>~/x11vnc_install.log
+    echo '#       Installing Cifs-utils        #' 2>>&1 1>>~/x11vnc_install.log
     echo '#------------------------------------#'
 /bin/sleep 2
 
 # Install Cis-utils 
-	/usr/bin/apt-get -qqy install cifs-utils 2>&1 1>~/x11vnc_install.log
+	/usr/bin/apt-get -qqy install cifs-utils 2>>&1 1>>~/x11vnc_install.log
 
 /usr/bin/clear
     echo ''
     echo '#------------------------------------#'
-    echo '#       Add /etc/fstab entrys        #' 2>&1 1>~/x11vnc_install.log
+    echo '#       Add /etc/fstab entrys        #' 2>>&1 1>>~/x11vnc_install.log
     echo '#------------------------------------#'
 /bin/sleep 2
 
@@ -150,25 +150,25 @@ fi
 /usr/bin/clear
     echo ''
     echo '#------------------------------------#'
-    echo '#       /etc/fstab entrys added      #' 2>&1 1>~/x11vnc_install.log
+    echo '#       /etc/fstab entrys added      #' 2>>&1 1>>~/x11vnc_install.log
     echo '#------------------------------------#'
 /bin/sleep 2
 
 /usr/bin/clear
     echo ''
     echo '#------------------------------------#'
-    echo '#    Test Mounting, Network Share    #' 2>&1 1>~/x11vnc_install.log
+    echo '#    Test Mounting, Network Share    #' 2>>&1 1>>~/x11vnc_install.log
     echo '#------------------------------------#'
 /bin/sleep 3
 
 # Mount share 
-/bin/mount -a /home/wob/.vnclock 2>&1 1>~/x11vnc_install.log
+/bin/mount -a /home/wob/.vnclock 2>>&1 1>>~/x11vnc_install.log
 
 sleep 1
 	/usr/bin/clear
 		echo ''
 		echo '#------------------------------------#'
-		echo '#    Checking if share is mounted    #' 2>&1 1>~/x11vnc_install.log
+		echo '#    Checking if share is mounted    #' 2>>&1 1>>~/x11vnc_install.log
 		echo '#------------------------------------#'
 	/bin/sleep 3
 	
@@ -185,7 +185,7 @@ fi
 /usr/bin/clear
 		echo ''
 		echo '#------------------------------------#'
-		echo '#    Creating Auto-Mount Script      #' 2>&1 1>~/x11vnc_install.log
+		echo '#    Creating Auto-Mount Script      #' 2>>&1 1>>~/x11vnc_install.log
 		echo '#------------------------------------#'
 /bin/sleep 2
 
@@ -221,7 +221,7 @@ fi
 /usr/bin/clear
 		echo ''
 		echo '#------------------------------------#'
-		echo '#    Giving Executable Permisions    #' 2>&1 1>~/x11vnc_install.log
+		echo '#    Giving Executable Permisions    #' 2>>&1 1>>~/x11vnc_install.log
 		echo '#------------------------------------#'
 /bin/sleep 2
 
@@ -229,12 +229,12 @@ fi
 nfs=/etc/NetworkManager/dispatcher.d/nfs.sh
 
 # Executable permissions
-/bin/chmod +x $nfs 2>&1 1>~/x11vnc_install.log
+/bin/chmod +x $nfs 2>>&1 1>>~/x11vnc_install.log
 
 /usr/bin/clear
 		echo ''
 		echo '#------------------------------------#'
-		echo '#    Checking File is Executable     #' 2>&1 1>~/x11vnc_install.log
+		echo '#    Checking File is Executable     #' 2>>&1 1>>~/x11vnc_install.log
 		echo '#------------------------------------#'
 /bin/sleep 2
 
@@ -244,7 +244,7 @@ then
 /usr/bin/clear
 		echo ''
 		echo '#------------------------------------#'
-		echo '#         File is Executable         #' 2>&1 1>~/x11vnc_install.log
+		echo '#         File is Executable         #' 2>>&1 1>>~/x11vnc_install.log
 		echo '#------------------------------------#'
 		/bin/sleep 2
 else
@@ -252,7 +252,7 @@ else
 /usr/bin/clear
 		echo ''
 		echo '#------------------------------------#'
-		echo '#            Check Failed            #' 2>&1 1>~/x11vnc_install.log
+		echo '#            Check Failed            #' 2>>&1 1>>~/x11vnc_install.log
 		echo '#------------------------------------#'
 fi
 
@@ -260,7 +260,7 @@ fi
 /usr/bin/clear
 		echo ''
 		echo '#------------------------------------#'
-		echo '#      X11VNC Start-up Script        #' 2>&1 1>~/x11vnc_install.log
+		echo '#      X11VNC Start-up Script        #' 2>>&1 1>>~/x11vnc_install.log
 		echo '#------------------------------------#'
 		/bin/sleep 2
 
@@ -285,12 +285,12 @@ x11start=/home/wob/.runx11vnc_login.sh
 /usr/bin/clear
 		echo ''
 		echo '#------------------------------------#'
-		echo '#    Giving Executable Permisions    #' 2>&1 1>~/x11vnc_install.log
+		echo '#    Giving Executable Permisions    #' 2>>&1 1>>~/x11vnc_install.log
 		echo '#------------------------------------#'
 /bin/sleep 2
 
 # Make script executable
-/bin/chmod +x $x11start 2>&1 1>~/x11vnc_install.log
+/bin/chmod +x $x11start 2>>&1 1>>~/x11vnc_install.log
 
 # Check if newly created script is executable
 if [[ -x "$x11start" ]]
@@ -298,7 +298,7 @@ if [[ -x "$x11start" ]]
 		/usr/bin/clear
 		echo ''
 		echo '#------------------------------------#'
-		echo '#         File is Executable         #' 2>&1 1>~/x11vnc_install.log
+		echo '#         File is Executable         #' 2>>&1 1>>~/x11vnc_install.log
 		echo '#------------------------------------#'
 		/bin/sleep 2
 	else
@@ -310,7 +310,7 @@ fi
 /usr/bin/clear
 		echo ''
 		echo '#------------------------------------#'
-		echo '#         X11VNC Install Complete    #' 2>&1 1>~/x11vnc_install.log
+		echo '#         X11VNC Install Complete    #' 2>>&1 1>>~/x11vnc_install.log
 		echo '#------------------------------------#'
 		/bin/sleep 1
 		echo ''
