@@ -8,4 +8,10 @@ Install LAMP on CentOS 6.x
     
 Ubuntu Systems - X11VNC - Viewonly - install script
 -----
+
     source <(curl -s https://raw.githubusercontent.com/elshender/scripts/master/x11vnc_install_viewonly.sh --insecure)
+
+Install icinga on CentOS 6.7: Desktop : script
+-----
+
+    source <(curl -s https://raw.githubusercontent.com/elshender/scripts/master/icinga-install.sh --insecure)
