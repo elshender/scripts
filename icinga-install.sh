@@ -25,17 +25,14 @@
 ##==============================================================================
  
 #   Installation of packages
- 
 yum install xterm
 yum install php php-cli rrdtool librrds-perl php5-gd gcc make tomcat6 perl-* perl *-perl php-pear php-xmlrpc php-xsl php-pdo php-soap php-gd php-ldap php-mysql httpd gcc glibc glibc-common gd gd-devel libjpeg libjpeg-devel libpng libpng-devel net-snmp net-snmp-devel net-snmp-utils mysql mysql-server libdbi libdbi-devel libdbi-drivers libdbi-dbd-mysql postgresql postgresql-server libdbi libdbi-devel libdbi-drivers libdbi-dbd-pgsql
  
  
 # Creation  of directory for installation
- 
 xterm -e mkdir /icinga
  
 # Creation of user account
- 
 useradd -m icinga
  
 echo "
@@ -56,8 +53,7 @@ usermod -a -G icinga-cmd icinga
 usermod -a -G icinga-cmd apache
  
  
-# Download of sources
- 
+# Download of sources 
 cd /usr/src/
  
 xterm -e wget http://garr.dl.sourceforge.net/project/icinga/icinga-web/1.10.0/icinga-web-1.10.0.tar.gz&
@@ -79,8 +75,6 @@ wait
  
 
 # Compilation and installation of Icinga Core
- 
- 
 cd /usr/src/
 tar xzvf icinga-1.10.1.tar.gz
 cd icinga-1.10.1/
@@ -134,12 +128,10 @@ mysql -u root icinga < mysql.sql
  
 
 # Management of broken modules
- 
 cp /usr/local/icinga/etc/modules/idoutils.cfg-sample /usr/local/icinga/etc/modules/idoutils.cfg
   
 
 # Configurationof classic web interface
- 
 cd /usr/src/icinga-1.10.1/
  
 make cgis
@@ -171,7 +163,6 @@ service httpd restart
  
  
 # Compilation and installation of plug-in for nagios
- 
 cd /usr/src
 tar xvzf nagios-plugins-1.5.tar.gz 
 cd nagios-plugins-1.5  
@@ -182,7 +173,6 @@ make
 make install
      
 # Temporary modification of system settings
- 
 getenforce
 setenforce 0
  
@@ -190,8 +180,7 @@ chcon -R -t httpd_sys_script_exec_t /usr/local/icinga/sbin/
 chcon -R -t httpd_sys_content_t /usr/local/icinga/share/
  
  
-# Restart and save new services
-     
+# Restart and save new services 
 for i in mysqld ido2db icinga httpd; do /etc/init.d/$i restart; done
  
 for i in mysqld ido2db icinga httpd; do chkconfig --add $i; chkconfig $i on; done
@@ -211,11 +200,8 @@ for i in mysqld ido2db icinga httpd; do chkconfig --add $i; chkconfig $i on; don
  
  
 #   ICINGA WEB
- 
 
-# Compilation and Installation
- 
- 
+# Compilation and Installation 
 cd /usr/src/
 tar xvzf icinga-web-1.10.0.tar.gz
 cd /usr/src/icinga-web-1.10.0/
@@ -228,9 +214,7 @@ make install-done
 make testdeps
                  
  
-# Configuration of Data Base for Icinga Web
- 
- 
+# Configuration of Data Base for Icinga Web 
 echo "
  
 # Initialize data base enter following commands on mysql
