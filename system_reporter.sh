@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Alex Mcphee
+# System Reporting Script
+# providing server documentation
+# 26/0815
 
 # you can edit this to suit your own output location
 ofile=/home/report/$HOSTNAME.html
