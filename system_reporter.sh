@@ -5,11 +5,13 @@
 # providing server documentation
 # 26/0815
 
-# you can edit this to suit your own output location
+#  Edit this path to point to the location you wish this report to be stored in.
 ofile=/home/report/$HOSTNAME.html
+
 # error file output, change to file location for debugging
 errfile=/home/report/error.log
-#ROOT CHECK
+
+#ROOT CHECK - check if user is root. if not ask user to be root.
 clear
 ID=`id | sed 's/uid=\([0-9]*\)(.*/\1/'`
 if [ "$ID" != "0" ] ; then
