@@ -69,6 +69,14 @@ echo "" >>$ofile
 echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>No.Of Running Process</H3><TD><PRE>">>$ofile
 ps ax | wc -l>>$ofile
 
+echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>List Contents of /opt/ Dir</H3><TD><PRE>">>$ofile
+# directory to search in.
+search_dir=/opt
+for entry in "$search_dir"/*
+do
+  echo "$entry" >>$ofile
+done
+
 echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>No.Of Mount Points</H3><TD><PRE>">>$ofile
 df -h | wc -l >>$ofile
 
@@ -113,9 +121,7 @@ dmesg | grep -i error >>$ofile
 
 echo "<TR valign=\"top\"><TD colspan=\"2\" bgcolor=#D1EEEE><H2>Network Config</H2><TD><PRE>">>$ofile
 
-
 echo "Network config...50%"
-
 
 echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>Interface Settings</H3><TD><PRE>" >>$ofile
 ifconfig -a >>$ofile
@@ -129,14 +135,10 @@ iptables -L -v -n >>$ofile
 echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>Route</H3><TD><PRE>">>$ofile
 route -n >>$ofile
 
-
 echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>Hosts</H3><TD><PRE>">>$ofile
 cat /etc/hosts >>$ofile
 
 echo "<TR valign=\"top\"><TD colspan=\"2\" bgcolor=#D1EEEE><H2>Server Status</H2><TD><PRE>">>$ofile
-
-#
-#
 
 echo "Server Status...75%"
 
@@ -180,7 +182,6 @@ cat /etc/sysctl.conf >> $ofile
 echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>Network Config</H3><TD><PRE>">>$ofile
 cat /etc/sysconfig/network-scripts/ifcfg-e* >>$ofile 
 
-
 # This need to be replaced with bootinfoscript
 echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>Grub Config</H3><TD><PRE>">>$ofile 
 grep -v "^#" /etc/grub.conf | grep -v "^$" | sed 's/</\&#60;/' | sed 's/>/\&#62;/'>>$ofile
@@ -189,7 +190,6 @@ grep -v "^#" /etc/grub.conf | grep -v "^$" | sed 's/</\&#60;/' | sed 's/>/\&#62;
 echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>Modprobe Config</H3><TD><PRE>">>$ofile
 #grep -v "^#" /etc/modprobe.conf | grep -v "^$" | sed 's/</\&#60;/' | sed 's/>/\&#62;/' >>$ofile
 cat /sbin/modprobe -c >> $ofile
-
 
 echo "</TABLE></BODY></HTML>">>$ofile
 
@@ -203,7 +203,6 @@ cp -rf /etc/sysconfig/network-scripts/ /var/tmp/precheck/network-scripts.$(date 
 cp /etc/sysctl.conf /var/tmp/precheck/sysctl.conf.precheck.$(date +%d-%m-%Y)
 cp /etc/grub.conf /var/tmp/precheck/grub.conf.precheck.$(date +%d-%m-%Y)
 cp /etc/modprobe.conf /var/tmp/precheck/modprobe.conf.precheck.$(date +%d-%m-%Y)
-
 
 echo "Finished...100%, open up the file in your favourite web browser"
 exit 0
