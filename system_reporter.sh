@@ -3,7 +3,7 @@
 # Alex Mcphee
 # System Reporting Script
 # providing server documentation
-# 26/0815
+# 26/08/15
 
 #  Edit this path to point to the location you wish this report to be stored in.
 ofile=/home/report/$HOSTNAME.html
@@ -186,10 +186,10 @@ cat /etc/sysctl.conf >> $ofile
 
 # Wild card added as interface names may vary greatly
 echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>Network Config</H3><TD><PRE>">>$ofile
-cat /etc/sysconfig/network-scripts/ifcfg-e* >>$ofile 
+cat /etc/sysconfig/network-scripts/ifcfg-e* >>$ofile
 
 # This need to be replaced with bootinfoscript
-echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>Grub Config</H3><TD><PRE>">>$ofile 
+echo "<TR valign=\"top\"><TD bgcolor=#F0F0F0><H3>Grub Config</H3><TD><PRE>">>$ofile
 grep -v "^#" /etc/grub.conf | grep -v "^$" | sed 's/</\&#60;/' | sed 's/>/\&#62;/'>>$ofile
 
 # commented out old modprobe 'grep' if your system s 'modeprobe.conf' is used and not '/etc/modprobe.d'
