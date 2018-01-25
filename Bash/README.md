@@ -1,5 +1,4 @@
 # scripts
-1
 
 Install LAMP on CentOS 6.x
 -----
