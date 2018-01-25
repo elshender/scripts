@@ -1,24 +1,21 @@
-:: Set given username and password in Registry for Component Control's Quantum
+:: Set given username and password in
+:: Registry for Component Control's Quantum
+:: -------------[ Alex McPhee ]------------
 
-@echo QTM Username Setter
-
+:: Window Scale and Color
 Title %~n0
 Mode 40,3 & Color 0E
 
 @echo off
-SET /P u=Username:
-Call:InputPassword "Password" P
+  SET /P u=Username:
+  Call:InputPassword "Password" P
 setlocal EnableDelayedExpansion
 
-Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\Software\Component Control USA, LLC.\Quantum Control\2k.0\Dev]
-"uname"="%u%"
-"upwd"="%p%"
-"spwd"=dword:00000000
-
-@echo %u% %p% > test.txt
-
+:: Add the following to Componant Control's registry. as of update 10.10.0 '\Dev' is omitted from install
+  REG ADD "HKCU\Software\Component Control USA, LLC.\Quantum Control\2k.0\Dev"
+  REG ADD "HKCU\Software\Component Control USA, LLC.\Quantum Control\2k.0\Dev" /v spwd /t REG_DWORD /d "00000000"
+  REG ADD "HKCU\Software\Component Control USA, LLC.\Quantum Control\2k.0\Dev" /v uname /t REG_SZ /d "%u%"
+  REG ADD "HKCU\Software\Component Control USA, LLC.\Quantum Control\2k.0\Dev" /v upwd /t REG_SZ /d "%P%"
 pause
 ::***********************************
 :InputPassword
