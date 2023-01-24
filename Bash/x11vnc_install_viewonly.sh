@@ -56,8 +56,8 @@ echo '#------------------------------------#'
 
 # Files to be Created
 PATH1=~/.vnc/ 
-PATH2=~/.authwob/
-PATH3=~/.vnclock/
+PATH2=~/.authloc/
+PATH3=~/.vncloc/
 FILE=.smbcred
 
 # Add file '/.vnc/' use by X11VNC as tmp data cache
@@ -137,7 +137,7 @@ fi
 	# INSERT TAB
 		echo -e -n "\t" >> /etc/fstab
 	# Local File to Mouse Share to.
-		echo -n "/home/wob/.vnclock" >> /etc/fstab 
+		echo -n "/home/wob/.vncloc" >> /etc/fstab 
 	# INSERT TAB
 		echo -e -n "\t" >> /etc/fstab
 	# Common Internet File System chosen, can be set to 'nfs'	
